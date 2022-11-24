@@ -34,9 +34,9 @@ export default function CurrentExhibition() {
   };
 
   return (
-    <div className="font-['Helvetica'] w-full h-full flex flex-col bg-white">
+    <div className="font-['Helvetica'] w-full h-full flex flex-col bg-white max-w-screen-2xl mx-auto">
       <div className={`w-full h-20 min-h-[80px]`}>
-        <div className="h-full flex justify-between items-center p-4 max-w-screen-2xl mx-auto">
+        <div className="h-full flex justify-between items-center p-4">
           <div className="h-full flex justify-start items-center gap-4">
             {!showFullScreen && (
               <>

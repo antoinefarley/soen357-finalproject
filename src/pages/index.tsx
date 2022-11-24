@@ -26,9 +26,7 @@ export default function Home() {
       <div className="h-full p-8 pb-8 bg-gray-60">
         <HeaderContentFlexLayout>
           <span className="flex justify-between items-center">
-            <span className="text-2xl font-bold">
-              Welcome to the Digital Museum of Arts
-            </span>
+            <span className="text-2xl font-bold">Featured Artworks</span>
             <span className="flex gap-2">
               {carouselArtworks.length > 0 && (
                 <ActionBarActions
