@@ -55,7 +55,7 @@ export const ArtworkExhibition: FunctionComponent<{
 
   useEffect(() => {
     onIntersectionScroll(artwork);
-  }, [isVisible]);
+  }, [isVisible, artwork]);
 
   return (
     <div
@@ -96,9 +96,9 @@ export const ArtworkExhibition: FunctionComponent<{
         } grow flex h-full basis-[300px]`}
       >
         <img
-          className="object-contain max-w-[100%]  max-h-[100%]"
+          className="object-contain max-w-[100%] max-h-[100%]"
           src={getArtworkImage(artwork)}
-          alt="img"
+          alt={`artwork-image-${artwork.title}`}
           loading="lazy"
         />
       </div>
@@ -133,7 +133,7 @@ export const Artwork: FunctionComponent<{
             <img
               className="object-contain max-w-[100%]  max-h-[100%]"
               src={getArtworkImage(artwork)}
-              alt="img"
+              alt={`artwork-image-${artwork.title}`}
               loading="lazy"
             />
           </div>
@@ -148,7 +148,7 @@ export const Artwork: FunctionComponent<{
             <img
               className="h-full object-cover hover:scale-[1.01]"
               src={getArtworkImage(artwork)}
-              alt="img"
+              alt={`artwork-image-${artwork.title}`}
               loading="lazy"
             />
           </div>
@@ -164,7 +164,7 @@ export const Artwork: FunctionComponent<{
               <img
                 className="w-full object-cover "
                 src={getArtworkImage(artwork)}
-                alt="img"
+                alt={`artwork-image-${artwork.title}`}
                 loading="lazy"
               />
             </div>

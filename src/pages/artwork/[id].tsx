@@ -51,12 +51,12 @@ const ArtworkPage = () => {
           "Artwork not found..."
         )}
       </div>
-      {showFullScreen && (
+      {showFullScreen && artwork && (
         <div className="w-full h-full flex justify-center items-center fixed top-0 left-0 bg-gray-100/95">
           <img
             className="h-full object-contain pointer-event-none"
             src={getArtworkImage(artwork)}
-            alt="img"
+            alt={`artwork-image-${artwork.title}`}
           />
           <button
             className="p-6 fixed top-0 right-0"

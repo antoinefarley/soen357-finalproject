@@ -22,7 +22,7 @@ export const Header: FunctionComponent = () => {
               <Image
                 className="w-10 object-contain"
                 src={dmoaLogo}
-                alt="Picture of the author"
+                alt="Digital Museum of Arts Logo"
               />
             </Link>
           </div>

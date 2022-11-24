@@ -75,7 +75,7 @@ export default function Artworks() {
             <img
               className="h-full object-contain pointer-event-none"
               src={getArtworkImage(carouselArtworks[selectedCarouselIndex])}
-              alt="img"
+              alt={`artwork-image-${carouselArtworks[selectedCarouselIndex].title}`}
             />
             <button
               className="p-6 fixed top-0 right-0"

@@ -76,7 +76,7 @@ const ArtworkPage = () => {
             </span>
             <div className="grow">
               {Object.keys(artworks).length === 0 ? (
-                <>"{search_term}" did not return any result.</>
+                <>&quot;{search_term}&quot; did not return any result.</>
               ) : (
                 <>
                   {selectedViewMode === FeaturedContentViewModes.GRID && (
@@ -90,7 +90,7 @@ const ArtworkPage = () => {
             </div>
           </HeaderContentFlexLayout>
         ) : (
-          "Artwork not found..."
+          <>Artwork not found...</>
         )}
       </div>
     </Layout>

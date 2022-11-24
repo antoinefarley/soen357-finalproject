@@ -41,6 +41,7 @@ export const ArtworkViewCarousel: FunctionComponent<{
             >
               <img
                 src={getArtworkImage(elem)}
+                alt={`artwork-image-${elem.title}`}
                 className="block mx-auto h-full object-contain drop-shadow-xl"
               />
             </div>

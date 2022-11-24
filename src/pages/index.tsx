@@ -1,12 +1,11 @@
-import { Layout } from "../components/layout";
-import { HeaderContentFlexLayout } from "../components/utils";
-
 import { getArtworkImage } from "@components/artwork";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useContext, useState } from "react";
 import { useBoolean } from "usehooks-ts";
 import { ActionBarActions } from "../components/action-bar";
 import { ArtworkViewCarousel } from "../components/artwork-views";
+import { Layout } from "../components/layout";
+import { HeaderContentFlexLayout } from "../components/utils";
 import { AppContext } from "./_app";
 
 export enum FeaturedContentViewModes {
@@ -51,7 +50,7 @@ export default function Home() {
           <img
             className="h-full object-contain pointer-event-none"
             src={getArtworkImage(carouselArtworks[selectedCarouselIndex])}
-            alt="img"
+            alt={`artwork-image-${carouselArtworks[selectedCarouselIndex].title}`}
           />
           <button
             className="p-6 fixed top-0 right-0"
