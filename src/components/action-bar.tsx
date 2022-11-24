@@ -4,13 +4,14 @@ import {
   ChevronRightIcon,
   HeartIcon,
   ListBulletIcon,
+  Square2StackIcon,
   Squares2X2Icon,
 } from "@heroicons/react/24/solid";
 import { useRouter } from "next/router";
 import { FeaturedContentViewModes } from "pages";
 import { AppContext } from "pages/_app";
 import { Dispatch, FunctionComponent, SetStateAction, useContext } from "react";
-import { Artwork } from "./artwork";
+import { ArtworkData } from "types/types";
 
 export type ActionBarIconButton = {
   icon: any;
@@ -50,7 +51,7 @@ export const ActionBar: FunctionComponent<ActionBarProps> = ({
 };
 
 export type ActionBarActionsProps = {
-  artwork: Artwork;
+  artwork: ArtworkData;
   onMagnifyClick: () => void;
 };
 export const ActionBarActions: FunctionComponent<ActionBarActionsProps> = ({
@@ -59,6 +60,8 @@ export const ActionBarActions: FunctionComponent<ActionBarActionsProps> = ({
 }) => {
   const { useSavedArtworks } = useContext(AppContext);
   const [savedArtworks, setSavedArtworks] = useSavedArtworks;
+
+  const isSaved = Object.keys(savedArtworks).includes(artwork.id.toString());
 
   const actionBarButtons = [
     {
@@ -74,7 +77,48 @@ export const ActionBarActions: FunctionComponent<ActionBarActionsProps> = ({
         <HeartIcon
           className={
             "h-4 w-4 hover:opacity-70 " +
-            (savedArtworks.includes(artwork.id)
+            (isSaved
+              ? `stroke-pink-500 fill-pink-500`
+              : `stroke-black fill-transparent`)
+          }
+        />
+      ),
+      onClick: () => {
+        setSavedArtworks(artwork.id);
+      },
+    },
+  ];
+
+  return <ActionBar title="Actions" iconButtons={actionBarButtons} />;
+};
+
+export type ActionBarExhibitionProps = {
+  artwork: ArtworkData;
+  onMagnifyClick: () => void;
+};
+export const ActionBarExhibition: FunctionComponent<
+  ActionBarExhibitionProps
+> = ({ artwork, onMagnifyClick }) => {
+  const { useSavedArtworks } = useContext(AppContext);
+  const [savedArtworks, setSavedArtworks] = useSavedArtworks;
+
+  const isSaved = Object.keys(savedArtworks).includes(artwork.id.toString());
+
+  const actionBarButtons = [
+    {
+      icon: (
+        <ArrowsPointingOutIcon
+          className={`h-4 w-4 stroke-black hover:opacity-70`}
+        />
+      ),
+      onClick: onMagnifyClick,
+    },
+    {
+      icon: (
+        <HeartIcon
+          className={
+            "h-4 w-4 hover:opacity-70 " +
+            (isSaved
               ? `stroke-pink-500 fill-pink-500`
               : `stroke-black fill-transparent`)
           }
@@ -90,14 +134,15 @@ export const ActionBarActions: FunctionComponent<ActionBarActionsProps> = ({
 };
 
 export type ActionBarNavigateProps = {
-  currentId: number;
-  artworkIds: number[];
+  currentId: string;
+  artworkIds: string[];
 };
 export const ActionBarNavigate: FunctionComponent<ActionBarNavigateProps> = ({
   currentId,
   artworkIds,
 }) => {
   const router = useRouter();
+
   const currentIndex = artworkIds.findIndex((elem) => elem === currentId);
   const hasPrevious = currentIndex !== 0;
   const hasNext = currentIndex !== artworkIds.length - 1;
@@ -146,6 +191,18 @@ export const ActionBarViewMode: FunctionComponent<ActionBarViewModeProps> = ({
   setSelectedViewMode,
 }) => {
   const actionBarButtons = [
+    {
+      icon: (
+        <Square2StackIcon
+          className={`h-5 w-5 stroke-black hover:opacity-70 fill-${
+            selectedViewMode === FeaturedContentViewModes.CAROUSEL
+              ? "black"
+              : "transparent"
+          }`}
+        />
+      ),
+      onClick: () => setSelectedViewMode(FeaturedContentViewModes.CAROUSEL),
+    },
     {
       icon: (
         <Squares2X2Icon

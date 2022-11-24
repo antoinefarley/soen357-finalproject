@@ -14,21 +14,18 @@ import {
 } from "../../components/artwork";
 import { Layout } from "../../components/layout";
 import { HeaderContentFlexLayout } from "../../components/utils";
-import { artworks } from "../../data/artworks/artworks";
-
-const getArtworkFromId = (id: any) =>
-  artworks.find((elem) => elem.id.toString() === id);
 
 const ArtworkPage = () => {
   const router = useRouter();
-  const { useSavedArtworks } = useContext(AppContext);
+  const { artworks } = useContext(AppContext);
 
   const { id } = router.query;
   const { value: showFullScreen, toggle: toggleFullScreen } = useBoolean();
 
-  const artwork = getArtworkFromId(id)!;
+  const computedId = typeof id === "string" ? Number.parseInt(id) : null;
+  const artwork = computedId ? artworks[computedId] : null;
 
-  const actionBarNavigateArtworksIds = artworks.map((elem) => elem.id);
+  const actionBarNavigateArtworksIds = Object.keys(artworks);
 
   return (
     <Layout>
@@ -36,10 +33,10 @@ const ArtworkPage = () => {
         {artwork ? (
           <HeaderContentFlexLayout>
             <span className="flex justify-between items-center gap-6">
-              <span className="pl-2 text-2xl font-bold">{artwork.title}</span>
+              <span className="text-2xl font-bold">{artwork.title}</span>
               <span className="flex gap-2">
                 <ActionBarNavigate
-                  currentId={artwork.id}
+                  currentId={artwork.id.toString()}
                   artworkIds={actionBarNavigateArtworksIds}
                 />
                 <ActionBarActions

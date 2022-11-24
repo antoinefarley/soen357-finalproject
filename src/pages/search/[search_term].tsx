@@ -1,38 +1,42 @@
 import { ListBulletIcon, Squares2X2Icon } from "@heroicons/react/24/solid";
 
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { AppContext } from "pages/_app";
+import { useContext, useState } from "react";
+import { ArtworkData, ArtworksRecord } from "types/types";
 import { FeaturedContentViewModes } from "..";
 import { ActionBar } from "../../components/action-bar";
-import { Artwork } from "../../components/artwork";
 import {
   ArtworkViewGrid,
   ArtworkViewList,
 } from "../../components/artwork-views";
 import { Layout } from "../../components/layout";
 import { HeaderContentFlexLayout } from "../../components/utils";
-import { artworks } from "../../data/artworks/artworks";
 
-const getArtworksFromSearch = (searchTerm: string) =>
-  artworks.filter((elem) =>
+const getArtworksFromSearch = (
+  artworks: ArtworksRecord,
+  searchTerm: string
+): ArtworkData[] =>
+  Object.values(artworks).filter((elem) =>
     elem.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
 const ArtworkPage = () => {
+  const { artworks } = useContext(AppContext);
   const [selectedViewMode, setSelectedViewMode] = useState(
     FeaturedContentViewModes.GRID
   );
 
   const router = useRouter();
   const { search_term } = router.query;
-
-  const filteredArtworks = getArtworksFromSearch(
+  const searchTerm =
     search_term !== undefined
       ? typeof search_term === "string"
         ? search_term
         : search_term.join(" ")
-      : ""
-  ) as Artwork[];
+      : "";
+
+  const filteredArtworks = getArtworksFromSearch(artworks, searchTerm);
 
   const actionBarButtons = [
     {
@@ -64,14 +68,14 @@ const ArtworkPage = () => {
   return (
     <Layout>
       <div className="h-full p-8 space-y-4">
-        {filteredArtworks ? (
+        {filteredArtworks.length > 0 ? (
           <HeaderContentFlexLayout>
             <span className="flex justify-between items-center">
-              <span className="pl-2 text-2xl font-bold">Search Results</span>
+              <span className="text-2xl font-bold">Search Results</span>
               <ActionBar title="Actions" iconButtons={actionBarButtons} />
             </span>
             <div className="grow">
-              {filteredArtworks.length == 0 ? (
+              {Object.keys(artworks).length === 0 ? (
                 <>"{search_term}" did not return any result.</>
               ) : (
                 <>

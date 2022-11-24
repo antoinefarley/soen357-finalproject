@@ -1,0 +1,135 @@
+{
+    "id": 263702,
+    "api_model": "artworks",
+    "api_link": "https://api.artic.edu/api/v1/artworks/263702",
+    "is_boosted": false,
+    "title": "Statuette of Venus",
+    "alt_titles": null,
+    "thumbnail": {
+        "lqip": "data:image/gif;base64,R0lGODlhBAAFAPQAAHRybHVzbXp4cn9+eYF/fYOCf4SDfYSDgYiHgI2KiI2Mi4+OjpiXl5mYmaOioqWkpaqpqa+tra+urrGwsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAEAAUAAAUR4FIcSiMEzDMAjkQk0IQYUQgAOw==",
+        "width": 3200,
+        "height": 4000,
+        "alt_text": "A work made of bronze."
+    },
+    "main_reference_number": "2022.134",
+    "has_not_been_viewed_much": true,
+    "boost_rank": null,
+    "date_start": 100,
+    "date_end": 200,
+    "date_display": "About 2nd century",
+    "date_qualifier_title": "",
+    "date_qualifier_id": null,
+    "artist_display": "Roman",
+    "place_of_origin": null,
+    "dimensions": "H. 7 7/8 in. (20 cm)",
+    "medium_display": "Bronze",
+    "inscriptions": null,
+    "credit_line": "Katherine K. Adler Memorial Endowment Fund; Cynthia and Terry E. Perucca Fund",
+    "publication_history": "A. de Ridder, Collection de Clercq, vol. 3 (Paris: 1905), 65, no. 85, pl. XIII.",
+    "exhibition_history": null,
+    "provenance_text": "Louis de Clercq (1882\u20131901), Paris [de Ridder 1905, III, no. 85, pl. XIII (no. 3)]; by descent to his grandnephew, Comte Henri de Boisgelin (1901\u20131967), Paris; Nicolas Koutoulakis (1910\u20131996), Paris, c. 1967; by descent in the family; private collection, Paris, by 2000. Private collection, 2019; sold to the Art Institute of Chicago, 2022.",
+    "publishing_verification_level": "Web Cataloged",
+    "internal_department_id": 941,
+    "fiscal_year": 2022,
+    "fiscal_year_deaccession": null,
+    "is_public_domain": false,
+    "is_zoomable": false,
+    "max_zoom_window_size": 843,
+    "copyright_notice": null,
+    "has_multimedia_resources": false,
+    "has_educational_resources": false,
+    "colorfulness": 0,
+    "color": {
+        "h": 53,
+        "l": 53,
+        "s": 11,
+        "percentage": 0.0002578125,
+        "population": 33
+    },
+    "latitude": null,
+    "longitude": null,
+    "latlon": null,
+    "is_on_view": true,
+    "on_loan_display": null,
+    "gallery_title": "Gallery 150",
+    "gallery_id": 26772,
+    "artwork_type_title": "Sculpture",
+    "artwork_type_id": 3,
+    "department_title": "Arts of the Ancient Mediterranean and Byzantium",
+    "department_id": "PC-4",
+    "artist_id": 51349,
+    "artist_title": "Ancient Roman",
+    "alt_artist_ids": [],
+    "artist_ids": [
+        51349
+    ],
+    "artist_titles": [
+        "Ancient Roman"
+    ],
+    "category_ids": [
+        "PC-4"
+    ],
+    "category_titles": [
+        "Arts of the Ancient Mediterranean and Byzantium"
+    ],
+    "artwork_catalogue_ids": [],
+    "term_titles": [],
+    "style_id": null,
+    "style_title": null,
+    "alt_style_ids": [],
+    "style_ids": [],
+    "style_titles": [],
+    "classification_id": null,
+    "classification_title": null,
+    "alt_classification_ids": [],
+    "classification_ids": [],
+    "classification_titles": [],
+    "subject_id": null,
+    "alt_subject_ids": [],
+    "subject_ids": [],
+    "subject_titles": [],
+    "material_id": null,
+    "alt_material_ids": [],
+    "material_ids": [],
+    "material_titles": [],
+    "technique_id": null,
+    "alt_technique_ids": [],
+    "technique_ids": [],
+    "technique_titles": [],
+    "theme_titles": [],
+    "image_id": "9c132fd4-6b70-a4da-e82e-67423984ae75",
+    "alt_image_ids": [],
+    "document_ids": [],
+    "sound_ids": [],
+    "video_ids": [],
+    "text_ids": [],
+    "section_ids": [],
+    "section_titles": [],
+    "site_ids": [],
+    "suggest_autocomplete_all": [
+        {
+            "input": [
+                "2022.134"
+            ],
+            "contexts": {
+                "groupings": [
+                    "accession"
+                ]
+            }
+        },
+        {
+            "input": [
+                "Statuette of Venus"
+            ],
+            "weight": 1,
+            "contexts": {
+                "groupings": [
+                    "title"
+                ]
+            }
+        }
+    ],
+    "last_updated_source": "2022-06-02T14:15:19-05:00",
+    "last_updated": "2022-06-11T23:05:07-05:00",
+    "timestamp": "2022-06-12T01:30:16-05:00"
+}

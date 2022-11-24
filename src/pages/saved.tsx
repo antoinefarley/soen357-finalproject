@@ -5,7 +5,6 @@ import { ActionBarViewMode } from "@components/action-bar";
 import { ArtworkViewGrid, ArtworkViewList } from "@components/artwork-views";
 import { useContext, useState } from "react";
 import { FeaturedContentViewModes } from ".";
-import { artworks } from "../data/artworks/artworks";
 import { AppContext } from "./_app";
 
 export default function Saved() {
@@ -15,23 +14,24 @@ export default function Saved() {
   const [selectedViewMode, setSelectedViewMode] = useState(
     FeaturedContentViewModes.GRID
   );
-  const savedArtworksArtworks = artworks.filter((elem) =>
-    savedArtworks.includes(elem.id)
-  );
+
+  const hasSavedArtworks = Object.keys(savedArtworks).length !== 0;
 
   return (
     <Layout>
       <div className="h-full p-8 bg-gray-60">
         <HeaderContentFlexLayout>
           <span className="flex justify-between items-center">
-            <span className="pl-2 text-2xl font-bold">Saved Artworks</span>
-            <ActionBarViewMode
-              selectedViewMode={selectedViewMode}
-              setSelectedViewMode={setSelectedViewMode}
-            />
+            <span className="text-2xl font-bold">Saved Artworks</span>
+            {hasSavedArtworks && (
+              <ActionBarViewMode
+                selectedViewMode={selectedViewMode}
+                setSelectedViewMode={setSelectedViewMode}
+              />
+            )}
           </span>
           <div className="grow">
-            {savedArtworks.length == 0 ? (
+            {!hasSavedArtworks ? (
               <>
                 Add elements to your saved collection by clicking the heart icon
                 on an artwork.
@@ -39,10 +39,10 @@ export default function Saved() {
             ) : (
               <>
                 {selectedViewMode === FeaturedContentViewModes.GRID && (
-                  <ArtworkViewGrid artworks={savedArtworksArtworks} />
+                  <ArtworkViewGrid artworks={Object.values(savedArtworks)} />
                 )}
                 {selectedViewMode === FeaturedContentViewModes.LIST && (
-                  <ArtworkViewList artworks={savedArtworksArtworks} />
+                  <ArtworkViewList artworks={Object.values(savedArtworks)} />
                 )}
               </>
             )}
