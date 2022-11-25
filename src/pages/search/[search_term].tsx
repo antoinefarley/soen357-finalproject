@@ -5,7 +5,7 @@ import { AppContext } from "pages/_app";
 import { useContext, useState } from "react";
 import { ArtworkData, ArtworksRecord } from "types/types";
 import { FeaturedContentViewModes } from "..";
-import { ActionBar } from "../../components/action-bar";
+import { ActionBarViewMode } from "../../components/action-bar";
 import {
   ArtworkViewGrid,
   ArtworkViewList,
@@ -72,7 +72,11 @@ const ArtworkPage = () => {
           <HeaderContentFlexLayout>
             <span className="flex justify-between items-center">
               <span className="text-2xl font-bold">Search Results</span>
-              <ActionBar title="Actions" iconButtons={actionBarButtons} />
+              <ActionBarViewMode
+                selectedViewMode={selectedViewMode}
+                setSelectedViewMode={setSelectedViewMode}
+                showCarousel={false}
+              />
             </span>
             <div className="grow">
               {Object.keys(artworks).length === 0 ? (

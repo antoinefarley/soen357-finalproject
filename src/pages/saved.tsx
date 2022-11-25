@@ -27,6 +27,7 @@ export default function Saved() {
               <ActionBarViewMode
                 selectedViewMode={selectedViewMode}
                 setSelectedViewMode={setSelectedViewMode}
+                showCarousel={false}
               />
             )}
           </span>

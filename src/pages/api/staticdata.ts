@@ -26,15 +26,17 @@ export default async function handler(
   //Find the absolute path of the json directory
   const jsonDirectory = path.join(process.cwd(), "json");
 
-  //Read the json data file data.json
+  //Read the json data file
   const fileNames = await fs.readdir(jsonDirectory);
 
+  // Get all files in directory
   const files = await Promise.all(
     fileNames.map((name: string) =>
       fs.readFile(jsonDirectory + `/${name}`, "utf8")
     )
   );
 
+  // Create artwork objects from files
   const artworks = getArtworks(files);
 
   //Return the content of the data file in json format

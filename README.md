@@ -1,3 +1,91 @@
+# DMOA - SOEN357 Final Project Website
+
+This is a Next.js Application that uses Typescript.
+
+## Pages
+
+All pages are under the ./src/pages directory:
+
+- "/" -> Home (Homepage with featured content)
+- "/artworks" -> Artworks (View all artworks)
+- "/saved" => Saved (View saved artworks)
+- "/about" => About (Description of the website's and project goal)
+- "/exhibition" => Exhibition (Current exhibition that is customizable with separate immersive UI)
+- "/search/\[search_term\]" => Search (Search results)
+- "/artwork/\[id\]" => Artwork (Individual artwork)
+
+## Components
+
+All components are under the ./src/components directory:
+
+### action-bar.tsx:
+
+Rounded tiles with title and action buttons.
+
+Variants:
+
+- ActionBarActions: Expand to full screen and save an artwork.
+- ActionBarNavigate: Navigate to previous or next artwork.
+- ActionBarViewMode: Switch view mode between Grid, List and Carousel (when available).
+
+### artwork-views.tsx
+
+Displays multiple artworks.
+
+Variants:
+
+- ArtwortViewCarousel: View artworks as a carousel of items.
+- ArtworkViewGrid: View artworks as a scrollable grid.
+- ArtworkViewList: View artworks as a scrollable list.
+
+### artwork.tsx
+
+Display a single artwork.
+
+Variants:
+
+- Artwork(variant="PICTURE_ONLY"): Shows the artwork image only. Hovering enlarges the image.
+- Artwork(variant="INFO_FLEX"): Shows detailed artwork information on the left and the image on the right.
+- Artwork(variant="LIST_ELEM"): Shows the artwork image on the left and general information as a 4x4 grid on the right.
+- Artwork(variant="INFO"): View information only.
+- ArtworkExhibition: Same as _Artwork(variant="PICTURE_ONLY")_ but with modified information and show/hide opacity animation. Used in exhibition section.
+
+### header.tsx
+
+Header/TopBar/Menu.
+
+Displays the following sections on the left as navigatable links:
+
+- Home
+- Artworks
+- Saved
+- About
+- Exhibition
+
+Also displays the search bar on the right.
+
+### layout.tsx
+
+Utility component that abstracts the layout via a header and scrollable content section.
+
+### searchbar.tsx
+
+Custom search bar.
+
+### utils.tsx
+
+Utility components:
+
+- HeaderContentFlexLayout: Abstraction of header and content layout used with ActionBar.
+
+## Data
+
+A [subset of the data](https://github.com/art-institute-of-chicago/api-data) from the [Art Institute of Chicago](http://api.artic.edu/docs/) was downloaded in json format and can be found in ./data. We retrieve and manipulate it from ./src/pages/api/staticdata.ts.
+
+---
+
+# Next.js Boostrapped README.md
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
