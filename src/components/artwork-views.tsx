@@ -79,7 +79,7 @@ export const ArtworkViewGrid: FunctionComponent<{
   artworks: ArtworkData[];
 }> = ({ artworks }) => {
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+    <div className="grid auto-rows-[minmax(300px,_500px)] grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
       {artworks.map((elem, index) => (
         <Artwork key={`artwork-grid-view-element-${index}`} artwork={elem} />
       ))}
