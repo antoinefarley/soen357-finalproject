@@ -17,12 +17,12 @@ export type ActionBarIconButton = {
   icon: any;
   onClick: (() => void) | undefined;
 };
-export type ActionBarProps = {
+type ActionBarProps = {
   title: string;
   iconButtons: Array<ActionBarIconButton>;
 };
 
-export const ActionBar: FunctionComponent<ActionBarProps> = ({
+const ActionBar: FunctionComponent<ActionBarProps> = ({
   title,
   iconButtons,
 }) => {
@@ -185,24 +185,31 @@ export const ActionBarNavigate: FunctionComponent<ActionBarNavigateProps> = ({
 export type ActionBarViewModeProps = {
   selectedViewMode: FeaturedContentViewModes;
   setSelectedViewMode: Dispatch<SetStateAction<FeaturedContentViewModes>>;
+  showCarousel?: boolean;
 };
 export const ActionBarViewMode: FunctionComponent<ActionBarViewModeProps> = ({
   selectedViewMode,
   setSelectedViewMode,
+  showCarousel = true,
 }) => {
   const actionBarButtons = [
-    {
-      icon: (
-        <Square2StackIcon
-          className={`h-5 w-5 stroke-black hover:opacity-70 fill-${
-            selectedViewMode === FeaturedContentViewModes.CAROUSEL
-              ? "black"
-              : "transparent"
-          }`}
-        />
-      ),
-      onClick: () => setSelectedViewMode(FeaturedContentViewModes.CAROUSEL),
-    },
+    ...(showCarousel
+      ? [
+          {
+            icon: (
+              <Square2StackIcon
+                className={`h-5 w-5 stroke-black hover:opacity-70 fill-${
+                  selectedViewMode === FeaturedContentViewModes.CAROUSEL
+                    ? "black"
+                    : "transparent"
+                }`}
+              />
+            ),
+            onClick: () =>
+              setSelectedViewMode(FeaturedContentViewModes.CAROUSEL),
+          },
+        ]
+      : []),
     {
       icon: (
         <Squares2X2Icon
